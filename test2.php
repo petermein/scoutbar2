@@ -30,6 +30,13 @@ echo '<meta http-equiv="Content-Type" content="text/html; '. ENCODING .'="'. CHA
   <div class="page-region">
     <div class="page-region-content">
       <div class="grid">
+      	<div class="row">
+      		<?PHP
+      		$user = USER::byId($_GET['user_id']);
+			echo $user->productPhoto();
+      		?>
+      		 <div class="tile bg-color-grayDark"> </div>
+        </div>
         <div class="row">
           <?PHP 
           	$products = PRODUCT::allProducts();

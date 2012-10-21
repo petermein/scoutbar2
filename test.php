@@ -30,11 +30,11 @@ echo '<meta http-equiv="Content-Type" content="text/html; '. ENCODING .'="'. CHA
   <div class="page-region">
     <div class="page-region-content">
       <div class="grid">
-        <div class="row">
+        <div class="row" id="userboard">
           <?PHP 
           	$users = USER::allUsers();
 			foreach($users as $user){
-				echo $user->photo();
+				echo $user->photo(true);
 			}
 			?>
         </div>
