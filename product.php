@@ -27,7 +27,6 @@
             <div class="tile-content image"> <img src="http://img.perezhilton.com/wp-content/uploads/2010/09/flod5xucjs__oPt.jpg" /> </div>
             <div class="brand">
               <div class="badge bg-color-blue">1</div>
-              
             </div>
           </div>
           <div class="tile">

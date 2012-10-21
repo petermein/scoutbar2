@@ -1,5 +1,6 @@
 <?PHP
 require_once 'config/config.inc.php';
+require_once DOC_ROOT.CLASS_DIR.'database.class.php';
 require_once DOC_ROOT.CLASS_DIR.'user.lib.php';
 require_once DOC_ROOT.CLASS_DIR.'product.lib.php';
 
