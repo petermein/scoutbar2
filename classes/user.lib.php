@@ -5,7 +5,7 @@ class User {
 	var $persoon_id;
 	var $firstname;
 	var $lastname;
-	
+
 	var $nickname;
 
 	var $email;
@@ -15,6 +15,8 @@ class User {
 	var $age;
 
 	var $sex;
+	
+	static $users = array();
 
 	function User($user) {
 
@@ -24,13 +26,11 @@ class User {
 
 	static function byId($user_id) {
 
-		static $users = array();
-
 		if (!is_numeric($user_id) or $user_id <= 0)
 			return null;
 
-		if (array_key_exists($user_id, $users))
-			return $users[$user_id];
+		if (array_key_exists($user_id, self::$users))
+			return self::$users[$user_id];
 
 		$database = Database::instance();
 
@@ -54,6 +54,23 @@ class User {
 		return $users[$user_id];
 	}
 
+	static function allUsers() {
+
+		$database = MYSQL::instance();
+
+		$query = "
+			SELECT
+				*
+			FROM
+				personen";
+
+		$rows = $database -> fetch_all_values($query);
+		foreach($rows as $row){
+		self::$users[$row['persoon_id']] = new User($row);
+		}
+		return self::$users;
+	}
+
 	function update($user) {
 
 		$this -> firstname = $user['voornaam'];
@@ -63,7 +80,7 @@ class User {
 		$this -> email = $user['email'];
 		$this -> mobile = $user['telefoon_nr'];
 		$this -> date_of_birth = $user['geboortedatum'];
-		$this -> age = $this->getAge();
+		$this -> age = $this -> getAge();
 		//TODO: Add sex to db
 		//$this -> sex = $user['sex'];
 	}
@@ -88,16 +105,16 @@ class User {
 	static function userPhoto($user = null, $odd = false, $ghosted = false, $centered = false) {
 
 		if ($user !== null and self::photoExists($user -> persoon_id)) {
-			$image = WEB_ROOT . IMAGE_DIR . 'users/' . $user ->persoon_id . ".png";
+			$image = WEB_ROOT . IMAGE_DIR . 'users/' . $user -> persoon_id . ".png";
 		} else {
 			$image = WEB_ROOT . IMAGE_DIR . 'default/user_photo_empty.png';
 		}
 
 		//TODO: Add style to image
 		$string = "<div class=\"tile\">
-           <div class=\"tile-content image\"> <img src='". $image ."' /> </div>
+           <div class=\"tile-content image\"> <img src='" . $image . "' /> </div>
            <div class=\"brand bg-color-orange\">
-             <p class=\"name\">". $user->firstname ." ". $lastname ."</p>
+             <p class=\"name\">" . $user -> firstname . " " . $user -> lastname . "</p>
            </div>
          </div>";
 
@@ -131,12 +148,12 @@ class User {
 			return $year_diff;
 		}
 	}
-	
-	function toString(){
+
+	function toString() {
 		echo "<pre>";
 		var_dump($this);
 		echo "</pre>";
-		
+
 	}
 
 }

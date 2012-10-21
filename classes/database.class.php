@@ -271,7 +271,7 @@ class Mysql implements Singleton {
 		$values = array();
 		$result = $this->query($query);
 		while($row = $this->connection->row($result)) {
-			$values[] = array_pop($row);
+			$values[] = $row;
 		}
 		return $values;
 	}
