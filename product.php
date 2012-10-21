@@ -3,7 +3,7 @@
   <?php include("header.php")?>
   <div class="page-header">
     <div class="page-header-content"> <a href="#" class="back-button big page-back"></a>
-      <h1> Gebruikers <small>streeplijst</small> </h1>
+      <h1> Producten <small>streeplijst</small> </h1>
     </div>
   </div>
   <div class="page-region">

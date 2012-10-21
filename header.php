@@ -20,7 +20,10 @@
 <div class="navigation-bar">
         <div class="navigation-bar-inner">
             <div class="brand">
-                <span class="name">Scoutbar</span>
+                <span class="name">
+                Scoutbar
+                <sup class="fg-color-yellow tertiary-info-secondary-text"> v 0.1.0</sup>
+                </span>
             </div>
  
             <ul class="place-right">
