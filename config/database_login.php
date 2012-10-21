@@ -1,8 +1,8 @@
 <?php
 
-$db_host = 'localhost';
-$db_user = 'root';
-$db_password = 'root';
+$db_host = '10.0.0.3';
+$db_user = 'tim';
+$db_password = 'systeem';
 $db_database = 'mydb';		
 
 define('DB_HOST',$db_host);
