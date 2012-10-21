@@ -20,7 +20,7 @@
 <div class="navigation-bar">
         <div class="navigation-bar-inner">
             <div class="brand">
-                <span class="name">Project Name</span>
+                <span class="name">Scoutbar</span>
             </div>
  
             <ul class="place-right">
@@ -40,7 +40,7 @@
                 <li data-role="dropdown" class="sub-menu">
                     <a href="#">Options</a>
                     <ul class="dropdown-menu">
-                        <li><a href="user.php">User</a></li>
+                        <li><a href="index.php?page=poduct">User</a></li>
                         <li><a href="#">Config</a></li>
                     </ul>
                 </li>
@@ -54,5 +54,6 @@
             </ul>
         </div>
     </div>
-
-<script src="js/dropdown.js"></script>
+<?PHP
+echo '<script src="'. JAVASCRIPT_DIR.'dropdown.js"></script>';
+?>
