@@ -8,6 +8,9 @@ class Product {
 	var $min_age;
 	var $categorie;
 	var $weight;
+	
+	static $Products = array();
+	
 
 	function Product($Product) {
 
@@ -17,13 +20,12 @@ class Product {
 
 	static function byId($Product_id) {
 
-		static $Products = array();
-
+		
 		if (!is_numeric($Product_id) or $Product_id <= 0)
 			return null;
 
-		if (array_key_exists($Product_id, $Products))
-			return $Products[$Product_id];
+		if (array_key_exists($Product_id, self::$Products))
+			return self::$Products[$Product_id];
 
 		$database = Database::instance();
 
@@ -36,12 +38,29 @@ class Product {
 
 		$result = $database -> query($query);
 		if ($row = $database -> row($result)) {
-			$Products[$Product_id] = new Product($row);
+			self::$Products[$Product_id] = new Product($row);
 		} else {
-			$Products[$Product_id] = null;
+			self::$Products[$Product_id] = null;
 		}
 
-		return $Products[$Product_id];
+		return self::$Products[$Product_id];
+	}
+	
+	static function allProducts() {
+
+		$database = MYSQL::instance();
+
+		$query = "
+			SELECT
+				*
+			FROM
+				product_product";
+
+		$rows = $database -> fetch_all_values($query);
+		foreach($rows as $row){
+		self::$Products[$row['product_id']] = new Product($row);
+		}
+		return self::$Products;
 	}
 
 	function update($Product) {
@@ -80,8 +99,16 @@ class Product {
 		}
 
 		//TODO: Add style to image
-		$string = "<img src='" . $image . "' class='Product_image' />";
-
+		$string = "<div class=\"tile\">
+           <div class=\"tile-content image\"> <img src='" . $image . "' /> </div>
+           <div class=\"brand bg-color-green\">";
+		   if($Product -> min_age == 16){
+		$string .= "<div class=\"badge bg-color-red\">16</div>";
+		   }
+        $string .=  "<p class=\"name\">" . $Product -> name . "</p>
+           </div>
+         </div>";
+		 
 		return $string;
 	}
 
