@@ -18,6 +18,13 @@ echo '<meta http-equiv="Content-Type" content="text/html; '. ENCODING .'="'. CHA
 <script src="'. JAVASCRIPT_DIR.'google-analytics.js"></script>
 <script src="'. JAVASCRIPT_DIR.'github.info.js"></script>';
 ?>
+<script language="JavaScript">
+	$(document).ready(function() {
+		$('.tile.user').click(function() {
+			console.log($(this).attr('id'));
+		});
+	});
+</script>
 </head>
 <body class="modern-ui">
 <div class="page secondary">

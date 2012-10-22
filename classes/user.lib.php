@@ -111,7 +111,7 @@ class User {
             $string .= self::userPhoto($this, false, "left");
 			$string .= '<h2 class="place-left">'. $this->firstname .' '. $this->lastname .'</h2>
              <div class="place-right" style="padding-right:30px;">
-             <h1 style="line-height:20px; padding-top:20px;">'. $this->saldo .'</h1>
+             <h1 style="line-height:20px; padding-top:20px;">&euro;'. number_format($this->saldo, 2) .'</h1>
              <small>Saldo</small>
              </div>
           </div>';
@@ -129,7 +129,7 @@ class User {
 		}
 
 		//TODO: Add style to image
-		$string = "<div class=\"tile\">
+		$string = "<div class=\"tile user\" id='". $user -> persoon_id ."'>
            <div class=\"tile-content image ". $align ."\"> <img src='" . $image . "' /> </div>";
 		if ($name) {
 			$string .= "<div class=\"brand bg-color-orange\">";

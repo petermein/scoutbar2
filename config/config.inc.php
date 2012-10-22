@@ -36,6 +36,7 @@ define('ENCODING',CHARSET);
 setlocale(LC_ALL, 'nl_NL.UTF-8');
 date_default_timezone_set('Europe/Amsterdam');
 
+
 require DOC_ROOT.SYSTEM_DIR."functions.inc.php";
 require DOC_ROOT.SYSTEM_DIR."interfaces.inc.php";
 

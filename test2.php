@@ -41,7 +41,7 @@ echo '<meta http-equiv="Content-Type" content="text/html; '. ENCODING .'="'. CHA
           <?PHP 
           	$products = PRODUCT::allProducts();
 			foreach($products as $product){
-				echo $product->photo();
+				echo $product->photo(true);
 			}
 			?>
         </div>

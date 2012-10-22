@@ -83,14 +83,14 @@ class Product {
 		return file_exists(DOC_ROOT . IMAGE_DIR . 'Products/' . $Product_id . '.png');
 	}
 
-	function photo($odd = false, $ghosted = false, $centered = false) {
+	function photo($name = false, $ghosted = false, $centered = false) {
 
-		$string = self::ProductPhoto($this, $odd, $ghosted, $centered);
+		$string = self::ProductPhoto($this, $name, $ghosted, $centered);
 		return $string;
 
 	}
 
-	static function ProductPhoto($Product = null, $odd = false, $ghosted = false, $centered = false) {
+	static function ProductPhoto($Product = null, $name = false, $ghosted = false, $centered = false) {
 
 		if ($Product !== null and self::photoExists($Product -> product_id)) {
 			$image = WEB_ROOT . IMAGE_DIR . 'Products/' . $Product ->product_id . ".png";
@@ -100,14 +100,17 @@ class Product {
 
 		//TODO: Add style to image
 		$string = "<div class=\"tile\">
-           <div class=\"tile-content image\"> <img src='" . $image . "' /> </div>
-           <div class=\"brand bg-color-green\">";
-		   if($Product -> min_age == 16){
+           <div class=\"tile-content image\"> <img src='" . $image . "' /> </div>";
+           if($name){
+           	           $string .= "<div class=\"brand bg-color-green\">";
+		   	if($Product -> min_age == 16){
 		$string .= "<div class=\"badge bg-color-red\">16</div>";
 		   }
-        $string .=  "<p class=\"name\">" . $Product -> name . "</p>
-           </div>
-         </div>";
+        $string .=  "<p class=\"name\">" . $Product -> name . "</p>";
+        
+           $string .= "</div>";
+   	   }
+        $string .= "</div>";
 		 
 		return $string;
 	}
