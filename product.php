@@ -14,15 +14,21 @@
       		$user = USER::byId($_GET['user_id']);
 			echo $user->productPhoto();
       	   ?>
-      		<div class="tile bg-color-grayDark"> </div>
+          <div class="tile bg-color-grayDark"> </div>
         </div>
         <div class="row">
-          <?PHP 
-          	$products = PRODUCT::all();
-			foreach($products as $product){
-				echo $product->photo(true);
-			}
-		  ?>
+          	<?PHP 
+        		$category = CATEGORY::all(true);
+				foreach($category as $cat){
+					echo "<div class=\"row\">";
+					echo $cat->Category_id;
+					$products = PRODUCT::byCategory($cat->Category_id);
+					foreach($products as $product){
+						echo $product->photo(true);
+					}
+					echo "</div>";
+				}
+			?>
         </div>
       </div>
     </div>

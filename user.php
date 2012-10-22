@@ -34,46 +34,4 @@
 	function MassaStreep(){
 		document.getElementById("main_row").innerHTML = "";
 	}
-//--user--\\
-     $(function () {
-         jsKeyboard.init("virtualKeyboard");
-         $("#txtContent").val(initText);
-     });
-     
-     function focusIt(t) {
-        // define where the cursor is to write character clicked.
-         jsKeyboard.currentElement = $(t);
-         jsKeyboard.show();
-     }
-
-     function showKeyboard(id) {
-         clean($("#" + id));
-         jsKeyboard.currentElement = $("#"+id);
-         jsKeyboard.show();
-     }
-     var isCleaned = false;
-     function clean(t) {
-         if (!isCleaned) {
-             $(t).text("");
-             isCleaned = true;
-         }
-     }
-     var initText = "click to here to start writing...";
-     function send() {
-         if ( $("#txtContent").val() != initText && $("#txtContent").val().length > 0) {
-             $("#requestForm").css("display", "none");
-             window.setTimeout('$("#feedback").html("Your request has been processing. Please wait...").css("display","block");', 100);
-             window.setTimeout('$("#feedback").html("Your request has been sent. You will see request form in 5 seconds").css("display","block");', 2000);
-             window.setTimeout('showRequestForm()', 7000);
-         }
-         else {
-             $("#feedback").html("Please write your request...").css("display","block");
-         }
-     }
-
-     function showRequestForm() {
-         $("#requestForm").css("display", "block");
-         $("#feedback").css("display", "none");
-         $("#feedback").html("");
-     }
 </script>

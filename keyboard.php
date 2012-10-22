@@ -1,9 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="da" lang="da">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
-<title>JavaScript Keyboard</title>
 <script type="text/javascript">
   <!--
   var shiftState = 'lowercase';
@@ -199,38 +193,77 @@
   -->
 </script>
 <style type="text/css">
-body, td {
-	font-family: Verdana, Arial, Helvetica, Geneva, Sans-Serif;
-	font-size: 13px;
-}
 .key {
-	font-family: monospace;
+	font-family: sans-serif;
 	font-size: 14px;
 	cursor: pointer;
 	border: 1px solid #000000;
-	background-color: #FFFFFF;
-	padding:10pxxxx;
-	width:40px;
+	background-color: #313038;
+	margin:5px 5px 5px 5px;
+	padding-top:10px;
+	width:50px;
 	height:40px;
 	float:left;
+	color:#fff;
+	text-align:center;
 }
 .key-row {
-	float:none;
+	position:relative;
+	width:940px;
+	float:inherit;
 }
 #keyboard {
-	font-family: monospace;
-	border-collapse: collapse;
-	border: 2px solid #000000;
-	padding: 12px;
-	width: 940px;
-	background-color: #000;
+	font-family: sans-serif;
+	padding: 2px;
+	height: 260px;
+	width: 920px;
+	background-color: #1D1D1D !important;
 }
+
+#tab {
+	width:80px;
+}
+#backsp {
+	width:120px;
+}
+#capsLock {
+	width:100px;
+}
+#shift1 {
+	width:120px;
+	background-color: #1d1c24;
+}
+#shift2 {
+	width:110px;
+	background-color: #1d1c24;
+}
+#Enter1 {
+	width:90px;
+}
+#Enter2 {
+	width:70px;
+}
+#Ctrl1 {
+	width:70px;
+	background-color: #1d1c24;
+}
+#Alt {
+	width:70px;
+	background-color: #1d1c24;
+}
+#Space {
+	width:580px;
+}
+#AltGr {
+	width:70px;
+	background-color: #1d1c24;
+}
+#Ctrl2 {
+	width:70px;
+	background-color: #1d1c24;
+}
+
 </style>
-</head>
-<body>
-<textarea id="echoField" rows="7" cols="60" style="width: 445px; height: 100px; font-family: Verdana, Arial, Helvetica, Geneva, Sans-Serif; font-size: 12px;" ></textarea>
-<br />
-<br />
 <div id="keyboard">
 <div class="key-row">
   <div class="key" id="oneHalf" onclick="keyClick(this.innerHTML)">½</div>
@@ -302,5 +335,3 @@ body, td {
   <div class="key" id="AltGr" onclick="altGrToggle()">Alt Gr</div>
   <div class="key" id="Ctrl2" onclick="keyClick('')">Ctrl</div>
 </div>
-</body>
-</html>
