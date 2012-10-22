@@ -20,7 +20,7 @@
           <?PHP 
           	$products = PRODUCT::allProducts();
 			foreach($products as $product){
-				echo $product->photo();
+				echo $product->photo(true);
 			}
 			?>
         </div>

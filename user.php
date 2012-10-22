@@ -24,3 +24,12 @@
   <? include("footer.php")?>
 </div>
 </body>
+<script language="JavaScript">
+//--user click handler--\\
+	$(document).ready(function() {
+		$('.tile.user').click(function() {
+			console.log($(this).attr('id'));
+			document.location.href = "index.php?page=poduct&user_id="+$(this).attr('id');
+		});
+	});
+</script>
