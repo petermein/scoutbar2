@@ -56,7 +56,7 @@ class User {
 		return $users[$user_id];
 	}
 
-	static function allUsers() {
+	static function all() {
 
 		$database = MYSQL::instance();
 

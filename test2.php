@@ -1,6 +1,7 @@
 <?PHP
 require_once 'config/config.inc.php';
 require_once DOC_ROOT.CLASS_DIR.'database.class.php';
+require_once DOC_ROOT.CLASS_DIR.'category.lib.php';
 require_once DOC_ROOT.CLASS_DIR.'user.lib.php';
 require_once DOC_ROOT.CLASS_DIR.'product.lib.php';
 
@@ -35,15 +36,20 @@ echo '<meta http-equiv="Content-Type" content="text/html; '. ENCODING .'="'. CHA
       		$user = USER::byId($_GET['user_id']);
 			echo $user->productPhoto();
       		?>
-      		 <div class="tile bg-color-grayDark"> </div>
+      		 <div class="tile bg-color-grayDarks"> </div>
         </div>
-        <div class="row">
-          <?PHP 
-          	$products = PRODUCT::allProducts();
+        <?PHP 
+        $category = CATEGORY::all(true);
+		foreach($category as $cat){
+			echo "<div class=\"row\">";
+			echo $cat->Category_id;
+			$products = PRODUCT::byCategory($cat->Category_id);
 			foreach($products as $product){
 				echo $product->photo(true);
 			}
-			?>
+			echo "</div>";
+		}
+	?>
         </div>
       </div>
     </div>

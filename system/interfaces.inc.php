@@ -10,6 +10,10 @@ interface APISerializable {
 	public function getAPIData();
 }
 
+interface Comparable  {
+
+	public static function compare($a, $b);
+}
 
 
 ?>
