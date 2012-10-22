@@ -16,7 +16,8 @@ echo '<meta http-equiv="Content-Type" content="text/html; '. ENCODING .'="'. CHA
 <link href="'. STYLE_DIR.'site.css" rel="stylesheet" type="text/css">
 <script src="'. JAVASCRIPT_DIR.'jquery-1.8.2.min.js"></script>
 <script src="'. JAVASCRIPT_DIR.'google-analytics.js"></script>
-<script src="'. JAVASCRIPT_DIR.'github.info.js"></script>';
+<script src="'. JAVASCRIPT_DIR.'github.info.js"></script>
+<script src="'. JAVASCRIPT_DIR.'error.js"></script>';
 ?>
 <script language="JavaScript">
 	$(document).ready(function() {
@@ -39,8 +40,24 @@ echo '<meta http-equiv="Content-Type" content="text/html; '. ENCODING .'="'. CHA
 		
 		$('.helper').click(function(event) {
 			$(this).parent().find(':input').val('').keyup();
+			error('click');
 		});
+		
+		//spotify
+		var sp = getSpotifyApi(1);
+		var models = sp.require("sp://import/scripts/api/models");
 	
+		// Get the track that is currently playing
+		var currentTrack = models.player.track;
+
+		// If nothing currently playing
+		if (currentTrack == null) {
+		    $('#now-playing').append('No track currently playing');
+		} else {
+		    var track = currentTrack;
+		    var artist = track.artists[0].name;
+		    $('#now-playing').append("Now playing: " + track, artist);
+		}
 	});
 </script>
 </head>
@@ -55,6 +72,9 @@ echo '<meta http-equiv="Content-Type" content="text/html; '. ENCODING .'="'. CHA
   <div class="page-region">
     <div class="page-region-content">
       <div class="grid">
+      	<div class="row">
+      		<span class="tertiary" id="now-playing"></span>
+      	</div>
         <div class="row" id="userboard">
           <?PHP 
           	$users = USER::all(true);
