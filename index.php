@@ -1,6 +1,7 @@
 <?PHP
 require_once 'config/config.inc.php';
 require_once DOC_ROOT.CLASS_DIR.'database.class.php';
+require_once DOC_ROOT.CLASS_DIR.'category.lib.php';
 require_once DOC_ROOT.CLASS_DIR.'user.lib.php';
 require_once DOC_ROOT.CLASS_DIR.'product.lib.php';
 
@@ -27,6 +28,9 @@ echo '<meta http-equiv="Content-Type" content="text/html; '. ENCODING .'="'. CHA
 	 break;
 	 case "poduct":
 	 	include("product.php");
+	 break;
+	 case "key":
+	 	include("keyboard.php");
 	 break;
 	 }
 	}else{

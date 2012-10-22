@@ -18,7 +18,7 @@
         </div>
         <div class="row">
           <?PHP 
-          	$products = PRODUCT::allProducts();
+          	$products = PRODUCT::all();
 			foreach($products as $product){
 				echo $product->photo(true);
 			}
