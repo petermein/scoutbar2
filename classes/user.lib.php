@@ -56,7 +56,7 @@ class User {
 		return $users[$user_id];
 	}
 
-	static function all() {
+	static function all($sort = false) {
 
 		$database = MYSQL::instance();
 
@@ -64,7 +64,11 @@ class User {
 			SELECT
 				*
 			FROM
-				personen";
+				personen	
+				";
+		if($sort){
+			$query .= "ORDER BY voornaam, achternaam";
+		}
 
 		$rows = $database -> fetch_all_values($query);
 		foreach ($rows as $row) {
@@ -77,7 +81,7 @@ class User {
 
 		$this -> firstname = htmlentities(strip_tags($user['voornaam']),ENT_QUOTES,'UTF-8');
 		$this -> lastname = htmlentities(strip_tags($user['achternaam']),ENT_QUOTES,'UTF-8');
-		$this -> nickname = $user['nickname'];
+		$this -> nickname = htmlentities(strip_tags($user['nickname']),ENT_QUOTES,'UTF-8');
 
 		$this -> email = $user['email'];
 		$this -> mobile = $user['telefoon_nr'];
@@ -135,6 +139,7 @@ class User {
 			$string .= "<div class=\"brand bg-color-orange\">";
 		}
 		$string .= "<p class=\"name\">" . $user -> firstname . " " . $user -> lastname . "</p>";
+		$string .= "<var style='display:none;'>" . $user -> firstname . " " . $user -> lastname . " ". $user -> nickname ."</var>";
           if ($name) {
 			$string .= "</div>>";
 		} 

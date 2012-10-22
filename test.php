@@ -23,6 +23,24 @@ echo '<meta http-equiv="Content-Type" content="text/html; '. ENCODING .'="'. CHA
 		$('.tile.user').click(function() {
 			console.log($(this).attr('id'));
 		});
+		
+		$('#search').keyup(function(event) {
+			var search_text = $('#search').val();
+			var rg = new RegExp(search_text,'i');
+			$('#userboard .tile').each(function(){
+	 			if($.trim($(this).find("var").html()).search(rg) == -1) {
+					$(this).hide().children().hide();
+				}	
+				else {
+					$(this).show().children().show();
+				}
+			});
+		});
+		
+		$('.helper').click(function(event) {
+			$(this).parent().find(':input').val('').keyup();
+		});
+	
 	});
 </script>
 </head>
@@ -39,11 +57,18 @@ echo '<meta http-equiv="Content-Type" content="text/html; '. ENCODING .'="'. CHA
       <div class="grid">
         <div class="row" id="userboard">
           <?PHP 
-          	$users = USER::allUsers();
+          	$users = USER::all(true);
+			
 			foreach($users as $user){
 				echo $user->photo(true);
 			}
 			?>
+        </div>
+        <div class="row">
+        	<div class="input-control text">
+        		<input type="text" id="search"/>
+        		<span class="helper"></span>
+    		</div>
         </div>
       </div>
     </div>
