@@ -295,7 +295,7 @@
   <div class="key" id="p" onclick="keyClick(this.innerHTML)">p</div>
   <div class="key" id="aa" onclick="keyClick(this.innerHTML)">å</div>
   <div class="key" id="umlaut" onclick="keyClick(this.innerHTML)">¨</div>
-  <div class="key" id="Enter1" onclick="keyClick('\n')">Enter</div>
+  <div class="key" id="Enter1" onclick="defocus()">Enter</div>
 </div>
 <div class="key-row">
   <div class="key" id="capsLock" onclick="toggleCapsLock()">C.L.</div>
