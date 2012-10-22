@@ -7,10 +7,9 @@
     </div>
   </div>
   <div class="page-region">
-  	
     <div class="page-region-content">
       <div class="grid">
-        <div class="row">
+        <div class="row" id="main_row">
  			<?PHP 
           	$users = USER::allUsers();
 			foreach($users as $user){
@@ -32,4 +31,7 @@
 			document.location.href = "index.php?page=poduct&user_id="+$(this).attr('id');
 		});
 	});
+	function MassaStreep(){
+		document.getElementById("main_row").innerHTML = "";
+	}
 </script>

@@ -44,7 +44,7 @@
                     <a href="#">Options</a>
                     <ul class="dropdown-menu">
                         <li><a href="index.php?page=poduct&user_id=16">User</a></li>
-                        <li><a href="#">ProductList</a></li>
+                        <li><a href="#" onclick="MassaStreep()">ProductList</a></li>
                     </ul>
                 </li>
                 <li data-role="dropdown" class="sub-menu">

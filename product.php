@@ -22,7 +22,7 @@
 			foreach($products as $product){
 				echo $product->photo(true);
 			}
-			?>
+		  ?>
         </div>
       </div>
     </div>
