@@ -10,17 +10,11 @@
     <div class="page-region-content">
       <div class="grid">
         <div class="row">
-          <div class="tile quadro bg-color-blueLight">
-            <div class="tile">
-              <div class="tile-content image left"> <img src="http://img.perezhilton.com/wp-content/uploads/2010/09/flod5xucjs__oPt.jpg" /> </div>
-            </div>
-            <h2 class="place-left">de naam</h2>
-            <div class="place-right" style="padding-right:30px;">
-              <h1 style="line-height:20px; padding-top:20px;">50,00</h1>
-              <small>Saldo</small> </div>
-          </div>
-          <div class="tile bg-color-grayDark">
-          </div>
+          <?PHP
+      		$user = USER::byId($_GET['user_id']);
+			echo $user->productPhoto();
+      	   ?>
+      		<div class="tile bg-color-grayDark"> </div>
         </div>
         <div class="row">
           <?PHP 

@@ -7,13 +7,14 @@
     </div>
   </div>
   <div class="page-region">
+  	
     <div class="page-region-content">
       <div class="grid">
         <div class="row">
  			<?PHP 
           	$users = USER::allUsers();
 			foreach($users as $user){
-				echo $user->photo();
+				echo $user->photo(true);
 			}
 			?>
         </div>
