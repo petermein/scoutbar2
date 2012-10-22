@@ -30,8 +30,31 @@
 			console.log($(this).attr('id'));
 			document.location.href = "index.php?page=poduct&user_id="+$(this).attr('id');
 		});
+		
+		$('.tile.user').click(function() {
+			console.log($(this).attr('id'));
+		});
+		
+		$('#search').keyup(function(event) {
+			var search_text = $('#search').val();
+			var rg = new RegExp(search_text,'i');
+			$('#userboard .tile').each(function(){
+	 			if($.trim($(this).find("var").html()).search(rg) == -1) {
+					$(this).hide().children().hide();
+				}	
+				else {
+					$(this).show().children().show();
+				}
+			});
+		});
+		
+		$('.helper').click(function(event) {
+			$(this).parent().find(':input').val('').keyup();
+			error('click');
+		});
 	});
 	function MassaStreep(){
 		document.getElementById("main_row").innerHTML = "";
 	}
+	
 </script>
