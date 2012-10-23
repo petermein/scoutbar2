@@ -116,23 +116,18 @@ class Product {
 	}
 
 	static function ProductPhoto($Product = null, $name = false, $ghosted = false, $centered = false) {
-
+		$string = "<div class=\"tile bg-color-". CATEGORY::byId($Product -> categorie)->color ."\">";
 		if ($Product !== null and self::photoExists($Product -> product_id)) {
 			$image = WEB_ROOT . IMAGE_DIR . 'Products/' . $Product -> product_id . ".png";
-		} else {
-			$image = WEB_ROOT . IMAGE_DIR . 'default/user_photo_empty.png';
-		}
-
-		//TODO: Add style to image
-		$string = "<div class=\"tile\">
-           <div class=\"tile-content image bg-color-". CATEGORY::byId($Product -> categorie)->color ."\"> <img src='" . $image . "' /> </div>";
-		if ($name) {
-			$string .= "<div class=\"brand bg-color-". CATEGORY::byId($Product -> categorie)->color ."\">";
-			$string .= "<p class=\"badge\">" . number_format($Product -> price,2) . "</p>";
-			$string .= "<p class=\"name\">" . $Product -> name . "</p>";
-		
-			$string .= "</div>";
-		}
+			$string .= "<div class=\"tile-content image bg-color-". CATEGORY::byId($Product -> categorie)->color ."\"> <img src='" . $image . "' /> </div>";
+			
+		}if ($name) {
+				$string .= "<div class=\"brand bg-color-". CATEGORY::byId($Product -> categorie)->color ."\">";
+				$string .= "<p class=\"badge\">" . number_format($Product -> price,2) . "</p>";
+				$string .= "<p class=\"name\">" . $Product -> name . "</p>";
+			
+				$string .= "</div>";
+			}
 		$string .= "</div>";
 
 		return $string;

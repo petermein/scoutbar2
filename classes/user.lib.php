@@ -111,7 +111,7 @@ class User {
 	}
 	
 	function productPhoto() {
-		$string = '<div class="tile quadro bg-color-blueLight">';
+		$string = '<div class="tile quadro bg-color-blue">';
             $string .= self::userPhoto($this, false, "left");
 			$string .= '<h2 class="place-left">'. $this->firstname .' '. $this->lastname .'</h2>
              <div class="place-right" style="padding-right:30px;">
