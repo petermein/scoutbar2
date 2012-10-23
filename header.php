@@ -25,7 +25,7 @@
                 <sup class="fg-color-yellow tertiary-info-secondary-text"> v 0.1.0</sup>
                 </span>
             </div>
- 
+ 			
             <ul class="place-right">
                 <li data-role="dropdown" class="sub-menu">
                     <a>Filters</a>
@@ -35,6 +35,9 @@
                     </ul>
                 </li>
             </ul>
+            <span class="place-right">
+            	<a class="icon-settings" style="z-index:9000;"></a>
+            </span>
  
             <ul>
                 <li>

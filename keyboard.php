@@ -238,7 +238,7 @@
 	padding: 2px;
 	height: 260px;
 	width: 920px;
-	background-color: #1D1D1D !important;
+	background-color: #525252 !important;
 }
 
 #tab {

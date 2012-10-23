@@ -1,5 +1,5 @@
 <div class="bar">
-    <div class="bar-inner bg-color-darken" id="footer" style=" position:fixed; width:940px; bottom:-270px; padding:10px">
+    <div class="bar-inner bg-color-grayDark" id="footer" style=" position:fixed; width:940px; bottom:-270px; padding:10px">
         <div class="input-control text" style="width=10% padding: 10px 10px 5px;">
         	<input type="text" id="search" />
         	<span class="helper"></span>
