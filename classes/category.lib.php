@@ -5,7 +5,8 @@ class Category implements Comparable {
 	var $Category_id;
 	var $Name;
 	var $Weight;
-
+	var $Hidden;
+	
 	static $Categorys = array();
 
 	function Category($Category) {
@@ -43,7 +44,7 @@ class Category implements Comparable {
 		return self::$Categorys[$Category_id];
 	}
 
-	static function all($sort = false) {
+	static function all($hidden = false, $sort = false) {
 
 		$database = MYSQL::instance();
 
@@ -52,6 +53,11 @@ class Category implements Comparable {
 				*
 			FROM
 				product_categorie";
+		if(!$hidden){
+			$query .= "
+			WHERE 
+				hidden = '0'";
+		}
 
 		$rows = $database -> fetch_all_values($query);
 		foreach ($rows as $row) {
@@ -77,6 +83,7 @@ class Category implements Comparable {
 
 		$this -> name = $Category['naam'];
 		$this -> weight = $Category['weight'];
+			$this -> hidden = $Category['hidden'];
 	}
 
 	function toString() {

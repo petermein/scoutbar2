@@ -21,21 +21,26 @@
         
           	<?PHP 
 			$first = true;
-        		$category = CATEGORY::all(true);
+        		$category = CATEGORY::all('', true);
 				foreach($category as $cat){
 					echo '<div class="row">';
 					echo '<div class="span8" style="margin-right: 0px; width:640px;">';
 					$products = PRODUCT::byCategory($cat->Category_id);
-
+					$i = 0;
 					foreach($products as $product){
-						
 						echo $product->photo(true);
+						$i++;
+					}
+					for($j = ($i%4 == 0 ? 0 : 4 - $i%4); $j==0, $j--;){
+								echo "<div class=\"tile bg-color-yellow\">
+           								
+									</div>";
 					}
 					echo '</div>';
 					if($first){
-					echo '<div class="span2" style="position:relative float:right">';
-					echo '<div class="tile double-vertical bg-color-green"> </div>';
-					echo '</div>';
+						echo '<div class="span2" style="position:relative float:right">';
+						echo '<div class="tile double-vertical bg-color-green"> </div>';
+						echo '</div>';
 					$first = false;
 					}
 					echo '</div>';

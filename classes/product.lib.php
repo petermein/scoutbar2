@@ -125,12 +125,9 @@ class Product {
 
 		//TODO: Add style to image
 		$string = "<div class=\"tile\">
-           <div class=\"tile-content image\"> <img src='" . $image . "' /> </div>";
+           <div class=\"tile-content image bg-color-yellow\"> <img src='" . $image . "' /> </div>";
 		if ($name) {
-			$string .= "<div class=\"brand bg-color-green\">";
-			if ($Product -> min_age == 16) {
-				$string .= "<div class=\"badge bg-color-red\">16</div>";
-			}
+			$string .= "<div class=\"brand bg-color-yellow\">";
 			$string .= "<p class=\"badge\">" . number_format($Product -> price,2) . "</p>";
 			$string .= "<p class=\"name\">" . $Product -> name . "</p>";
 		
