@@ -9,7 +9,7 @@
   <div class="page-region">
     <div class="page-region-content">
       <div class="grid">
-        <div class="row" id="main_row">
+        <div class="row" id="userboard">
  			<?PHP 
           	$users = USER::all();
 			foreach($users as $user){
@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-  <? include("footer.php")?>
+  <?php include("footer.php")?>
 </div>
 </body>
 <script language="JavaScript">
@@ -35,7 +35,12 @@
 			console.log($(this).attr('id'));
 		});
 		
+		$('#search').change(function(event) {
+			console.log('2');
+		});
+		
 		$('#search').keyup(function(event) {
+
 			var search_text = $('#search').val();
 			var rg = new RegExp(search_text,'i');
 			$('#userboard .tile').each(function(){

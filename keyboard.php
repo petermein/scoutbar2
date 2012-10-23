@@ -1,8 +1,28 @@
 <script type="text/javascript">
-  <!--
   var shiftState = 'lowercase';
   var altGrState = 'off';
   var capsLockState = 'off';
+
+	$(document).ready(function(){
+
+  $('.key').click(function(){
+  	$('#search').keyup();
+  });
+  $('.key:not(.special)').click(function(){
+  	key = $(this).html();
+  	keyClick(key);
+  });
+  
+  $('.special#tab').click(function(){ keyClick('\t'); });
+  $('.special#Enter1').click(function(){ defocus(); });
+  $('.special#Enter2').click(function(){ defocus(); });
+  $('.special#capslock').click(function(){ toggleCapsLock(); });
+  $('.special#Space').click(function(){ keyClick(' '); });
+  $('.special#AltGr').click(function(){ altGrToggle(); });
+  $('.special#Shift1').click(function(){ shiftToggle(); });
+  $('.special#Shift2').click(function(){ shiftToggle(); });
+
+});
 
   function keyClick(key)
   {
@@ -22,122 +42,123 @@
     }    
     if(key == 'backsp.')
     {
-      var formFieldValue = document.getElementById('echoField').value;
-      document.getElementById('echoField').value = formFieldValue.substring(0, formFieldValue.length - 1); // Backspacing over newlines only works in Gecko based browsers
+      var formFieldValue = $('#search').val();
+      $('#search').val(formFieldValue.substring(0, formFieldValue.length - 1)); // Backspacing over newlines only works in Gecko based browsers
     }
     else
     {
-      document.getElementById('echoField').value = document.getElementById('echoField').value + key;
+      $('#search').val($('#search').val() + key);
     }
-    document.getElementById('echoField').focus();
+    $('#search').focus();
   }
+  
     
   function shiftToggle(toggleType)
   {
     if((shiftState == 'lowercase') && (toggleType != 'normalKeyClick'))
     {
-      document.getElementById('a').innerHTML = 'A';
-      document.getElementById('b').innerHTML = 'B';
-      document.getElementById('c').innerHTML = 'C';
-      document.getElementById('d').innerHTML = 'D';
-      document.getElementById('e').innerHTML = 'E';
-      document.getElementById('f').innerHTML = 'F';
-      document.getElementById('g').innerHTML = 'G';
-      document.getElementById('h').innerHTML = 'H';
-      document.getElementById('i').innerHTML = 'I';
-      document.getElementById('j').innerHTML = 'J';
-      document.getElementById('k').innerHTML = 'K';
-      document.getElementById('l').innerHTML = 'L';
-      document.getElementById('m').innerHTML = 'M';
-      document.getElementById('n').innerHTML = 'N';
-      document.getElementById('o').innerHTML = 'O';
-      document.getElementById('p').innerHTML = 'P';
-      document.getElementById('q').innerHTML = 'Q';
-      document.getElementById('r').innerHTML = 'R';
-      document.getElementById('s').innerHTML = 'S';
-      document.getElementById('t').innerHTML = 'T';
-      document.getElementById('u').innerHTML = 'U';
-      document.getElementById('v').innerHTML = 'V';
-      document.getElementById('w').innerHTML = 'W';
-      document.getElementById('x').innerHTML = 'X';
-      document.getElementById('y').innerHTML = 'Y';
-      document.getElementById('z').innerHTML = 'Z';
-      document.getElementById('ae').innerHTML = 'Æ';
-      document.getElementById('oe').innerHTML = 'Ø';
-      document.getElementById('aa').innerHTML = 'Å';
-      document.getElementById('oneHalf').innerHTML = '§';
-      document.getElementById('n1').innerHTML = '!';
-      document.getElementById('n2').innerHTML = '\"';
-      document.getElementById('n3').innerHTML = '#';
-      document.getElementById('n4').innerHTML = '¤';
-      document.getElementById('n5').innerHTML = '%';
-      document.getElementById('n6').innerHTML = '&amp;';
-      document.getElementById('n7').innerHTML = '\/';
-      document.getElementById('n8').innerHTML = '(';
-      document.getElementById('n9').innerHTML = ')';
-      document.getElementById('n0').innerHTML = '=';
-      document.getElementById('plus').innerHTML = '?';
-      document.getElementById('forwardSingleQuote').innerHTML = '`';
-      document.getElementById('lessThan').innerHTML = '&gt;';
-      document.getElementById('comma').innerHTML = '\;';
-      document.getElementById('dot').innerHTML = ':';
-      document.getElementById('dash').innerHTML = '_';
-      document.getElementById('singleQuote').innerHTML = '*';
-      document.getElementById('umlaut').innerHTML = '^';
+      $('#a').html('A');
+      $('#b').html('B');
+      $('#c').html('C');
+      $('#d').html('D');
+      $('#e').html('E');
+      $('#f').html('F');
+      $('#g').html('G');
+      $('#h').html('H');
+      $('#i').html('I');
+      $('#j').html('J');
+      $('#k').html('K');
+      $('#l').html('L');
+      $('#m').html('M');
+      $('#n').html('N');
+      $('#o').html('O');
+      $('#p').html('P');
+      $('#q').html('Q');
+      $('#r').html('R');
+      $('#s').html('S');
+      $('#t').html('T');
+      $('#u').html('U');
+      $('#v').html('V');
+      $('#w').html('W');
+      $('#x').html('X');
+      $('#y').html('Y');
+      $('#z').html('Z');
+      $('#ae').html('ï¿½');
+      $('#oe').html('ï¿½');
+      $('#aa').html('ï¿½');
+      $('#oneHalf').html('ï¿½');
+      $('#n1').html('!');
+      $('#n2').html('\"');
+      $('#n3').html('#');
+      $('#n4').html('ï¿½');
+      $('#n5').html('%');
+      $('#n6').html('&amp;');
+      $('#n7').html('\/');
+      $('#n8').html('(');
+      $('#n9').html(')');
+      $('#n0').html('=');
+      $('#plus').html('?');
+      $('#forwardSingleQuote').html('`');
+      $('#lessThan').html('&gt;');
+      $('#comma').html('\;');
+      $('#dot').html(':');
+      $('#dash').html('_');
+      $('#singleQuote').html('*');
+      $('#umlaut').html('^');
       shiftState = 'uppercase';
     }
     else if (shiftState == 'uppercase')
     {
       if(capsLockState == 'off')
       {
-        document.getElementById('a').innerHTML = 'a';
-        document.getElementById('b').innerHTML = 'b';
-        document.getElementById('c').innerHTML = 'c';
-        document.getElementById('d').innerHTML = 'd';
-        document.getElementById('e').innerHTML = 'e';
-        document.getElementById('f').innerHTML = 'f';
-        document.getElementById('g').innerHTML = 'g';
-        document.getElementById('h').innerHTML = 'h';
-        document.getElementById('i').innerHTML = 'i';
-        document.getElementById('j').innerHTML = 'j';
-        document.getElementById('k').innerHTML = 'k';
-        document.getElementById('l').innerHTML = 'l';
-        document.getElementById('m').innerHTML = 'm';
-        document.getElementById('n').innerHTML = 'n';
-        document.getElementById('o').innerHTML = 'o';
-        document.getElementById('p').innerHTML = 'p';
-        document.getElementById('q').innerHTML = 'q';
-        document.getElementById('r').innerHTML = 'r';
-        document.getElementById('s').innerHTML = 's';
-        document.getElementById('t').innerHTML = 't';
-        document.getElementById('u').innerHTML = 'u';
-        document.getElementById('v').innerHTML = 'v';
-        document.getElementById('w').innerHTML = 'w';
-        document.getElementById('x').innerHTML = 'x';
-        document.getElementById('y').innerHTML = 'y';
-        document.getElementById('z').innerHTML = 'z';
-        document.getElementById('ae').innerHTML = 'æ';
-        document.getElementById('oe').innerHTML = 'ø';
-        document.getElementById('aa').innerHTML = 'å';
-        document.getElementById('oneHalf').innerHTML = '½';
-        document.getElementById('n1').innerHTML = '1';
-        document.getElementById('n2').innerHTML = '2';
-        document.getElementById('n3').innerHTML = '3';
-        document.getElementById('n4').innerHTML = '4';
-        document.getElementById('n5').innerHTML = '5';
-        document.getElementById('n6').innerHTML = '6';
-        document.getElementById('n7').innerHTML = '7';
-        document.getElementById('n8').innerHTML = '8';
-        document.getElementById('n9').innerHTML = '9';
-        document.getElementById('n0').innerHTML = '0';
-        document.getElementById('plus').innerHTML = '+';
-        document.getElementById('forwardSingleQuote').innerHTML = '´';
-        document.getElementById('lessThan').innerHTML = '&lt;';
-        document.getElementById('comma').innerHTML = ',';
-        document.getElementById('dot').innerHTML = '.';
-        document.getElementById('dash').innerHTML = '-';
-        document.getElementById('singleQuote').innerHTML = '\'';
-        document.getElementById('umlaut').innerHTML = '¨';
+        $('#a').html('a');
+        $('#b').html('b');
+        $('#c').html('c');
+        $('#d').html('d');
+        $('#e').html('e');
+        $('#f').html('f');
+        $('#g').html('g');
+        $('#h').html('h');
+        $('#i').html('i');
+        $('#j').html('j');
+        $('#k').html('k');
+        $('#l').html('l');
+        $('#m').html('m');
+        $('#n').html('n');
+        $('#o').html('o');
+        $('#p').html('p');
+        $('#q').html('q');
+        $('#r').html('r');
+        $('#s').html('s');
+        $('#t').html('t');
+        $('#u').html('u');
+        $('#v').html('v');
+        $('#w').html('w');
+        $('#x').html('x');
+        $('#y').html('y');
+        $('#z').html('z');
+        $('#ae').html('ï¿½');
+        $('#oe').html('ï¿½');
+        $('#aa').html('ï¿½');
+        $('#oneHalf').html('ï¿½');
+        $('#n1').html('1');
+        $('#n2').html('2');
+        $('#n3').html('3');
+        $('#n4').html('4');
+        $('#n5').html('5');
+        $('#n6').html('6');
+        $('#n7').html('7');
+        $('#n8').html('8');
+        $('#n9').html('9');
+        $('#n0').html('0');
+        $('#plus').html('+');
+        $('#forwardSingleQuote').html('ï¿½');
+        $('#lessThan').html('&lt;');
+        $('#comma').html(',');
+        $('#dot').html('.');
+        $('#dash').html('-');
+        $('#singleQuote').html('\'');
+        $('#umlaut').html('ï¿½');
         shiftState = 'lowercase';
       }
     }
@@ -147,32 +168,32 @@
   {
     if((altGrState == 'off') && (toggleType != 'normalKeyClick'))
     {
-      document.getElementById('n2').innerHTML = '@';
-      document.getElementById('n3').innerHTML = '£';
-      document.getElementById('e').innerHTML = '€';
-      document.getElementById('n4').innerHTML = '$';
-      document.getElementById('n7').innerHTML = '{';
-      document.getElementById('n8').innerHTML = '[';
-      document.getElementById('n9').innerHTML = ']';
-      document.getElementById('n0').innerHTML = '}';
-      document.getElementById('forwardSingleQuote').innerHTML = '|';
-      document.getElementById('umlaut').innerHTML = '~';
-      document.getElementById('lessThan').innerHTML = '\\';
+      $('#n2').html('@');
+      $('#n3').html('ï¿½');
+      $('#e').html('ï¿½');
+      $('#n4').html('$');
+      $('#n7').html('{');
+      $('#n8').html('[');
+      $('#n9').html(']');
+      $('#n0').html('}');
+      $('#forwardSingleQuote').html('|');
+      $('#umlaut').html('~');
+      $('#lessThan').html('\\');
       altGrState = 'on';
     }
     else if (altGrState == 'on')
     {
-      document.getElementById('n2').innerHTML = '2';
-      document.getElementById('n3').innerHTML = '3';
-      document.getElementById('e').innerHTML = 'e';
-      document.getElementById('n4').innerHTML = '4';
-      document.getElementById('n7').innerHTML = '7';
-      document.getElementById('n8').innerHTML = '8';
-      document.getElementById('n9').innerHTML = '9';
-      document.getElementById('n0').innerHTML = '0';
-      document.getElementById('forwardSingleQuote').innerHTML = '´';
-      document.getElementById('umlaut').innerHTML = '¨';
-      document.getElementById('lessThan').innerHTML = '&lt;';
+      $('#n2').html('2');
+      $('#n3').html('3');
+      $('#e').html('e');
+      $('#n4').html('4');
+      $('#n7').html('7');
+      $('#n8').html('8');
+      $('#n9').html('9');
+      $('#n0').html('0');
+      $('#forwardSingleQuote').html('ï¿½');
+      $('#umlaut').html('ï¿½');
+      $('#lessThan').html('&lt;');
       altGrState = 'off';
     }
   }
@@ -266,72 +287,72 @@
 </style>
 <div id="keyboard">
 <div class="key-row">
-  <div class="key" id="oneHalf" onclick="keyClick(this.innerHTML)">½</div>
-  <div class="key" id="n1" onclick="keyClick(this.innerHTML)">1</div>
-  <div class="key" id="n2" onclick="keyClick(this.innerHTML)">2</div>
-  <div class="key" id="n3" onclick="keyClick(this.innerHTML)">3</div>
-  <div class="key" id="n4" onclick="keyClick(this.innerHTML)">4</div>
-  <div class="key" id="n5" onclick="keyClick(this.innerHTML)">5</div>
-  <div class="key" id="n6" onclick="keyClick(this.innerHTML)">6</div>
-  <div class="key" id="n7" onclick="keyClick(this.innerHTML)">7</div>
-  <div class="key" id="n8" onclick="keyClick(this.innerHTML)">8</div>
-  <div class="key" id="n9" onclick="keyClick(this.innerHTML)">9</div>
-  <div class="key" id="n0" onclick="keyClick(this.innerHTML)">0</div>
-  <div class="key" id="plus" onclick="keyClick(this.innerHTML)">+</div>
-  <div class="key" id="forwardSingleQuote" onclick="keyClick(this.innerHTML)">´</div>
-  <div class="key" id="backsp" onclick="keyClick(this.innerHTML)">backsp.</div>
+  <div class="key" id="oneHalf">ï¿½</div>
+  <div class="key" id="n1">1</div>
+  <div class="key" id="n2">2</div>
+  <div class="key" id="n3">3</div>
+  <div class="key" id="n4">4</div>
+  <div class="key" id="n5">5</div>
+  <div class="key" id="n6">6</div>
+  <div class="key" id="n7">7</div>
+  <div class="key" id="n8">8</div>
+  <div class="key" id="n9">9</div>
+  <div class="key" id="n0">0</div>
+  <div class="key" id="plus">+</div>
+  <div class="key" id="forwardSingleQuote" >ï¿½</div>
+  <div class="key" id="backsp" >backsp.</div>
 </div>
 <div class="key-row">
-  <div class="key" id="tab" onclick="keyClick('\t')">tab</div>
-  <div class="key" id="q" onclick="keyClick(this.innerHTML)">q</div>
-  <div class="key" id="w" onclick="keyClick(this.innerHTML)">w</div>
-  <div class="key" id="e" onclick="keyClick(this.innerHTML)">e</div>
-  <div class="key" id="r" onclick="keyClick(this.innerHTML)">r</div>
-  <div class="key" id="t" onclick="keyClick(this.innerHTML)">t</div>
-  <div class="key" id="y" onclick="keyClick(this.innerHTML)">y</div>
-  <div class="key" id="u" onclick="keyClick(this.innerHTML)">u</div>
-  <div class="key" id="i" onclick="keyClick(this.innerHTML)">i</div>
-  <div class="key" id="o" onclick="keyClick(this.innerHTML)">o</div>
-  <div class="key" id="p" onclick="keyClick(this.innerHTML)">p</div>
-  <div class="key" id="aa" onclick="keyClick(this.innerHTML)">å</div>
-  <div class="key" id="umlaut" onclick="keyClick(this.innerHTML)">¨</div>
-  <div class="key" id="Enter1" onclick="defocus()">Enter</div>
+  <div class="key special" id="tab">tab</div>
+  <div class="key" id="q">q</div>
+  <div class="key" id="w">w</div>
+  <div class="key" id="e">e</div>
+  <div class="key" id="r">r</div>
+  <div class="key" id="t">t</div>
+  <div class="key" id="y">y</div>
+  <div class="key" id="u">u</div>
+  <div class="key" id="i">i</div>
+  <div class="key" id="o">o</div>
+  <div class="key" id="p">p</div>
+  <div class="key" id="aa">ï¿½</div>
+  <div class="key" id="umlaut">ï¿½</div>
+  <div class="key special" id="Enter1">Enter</div>
 </div>
 <div class="key-row">
-  <div class="key" id="capsLock" onclick="toggleCapsLock()">C.L.</div>
-  <div class="key" id="a" onclick="keyClick(this.innerHTML)">a</div>
-  <div class="key" id="s" onclick="keyClick(this.innerHTML)">s</div>
-  <div class="key" id="d" onclick="keyClick(this.innerHTML)">d</div>
-  <div class="key" id="f" onclick="keyClick(this.innerHTML)">f</div>
-  <div class="key" id="g" onclick="keyClick(this.innerHTML)">g</div>
-  <div class="key" id="h" onclick="keyClick(this.innerHTML)">h</div>
-  <div class="key" id="j" onclick="keyClick(this.innerHTML)">j</div>
-  <div class="key" id="k" onclick="keyClick(this.innerHTML)">k</div>
-  <div class="key" id="l" onclick="keyClick(this.innerHTML)">l</div>
-  <div class="key" id="ae" onclick="keyClick(this.innerHTML)">æ</div>
-  <div class="key" id="oe" onclick="keyClick(this.innerHTML)">ø</div>
-  <div class="key" id="singleQuote" onclick="keyClick(this.innerHTML)">'</div>
-  <div class="key" id="Enter2" onclick="keyClick('\n')">Ent.</div>
+  <div class="key special" id="capsLock">C.L.</div>
+  <div class="key" id="a">a</div>
+  <div class="key" id="s">s</div>
+  <div class="key" id="d">d</div>
+  <div class="key" id="f">f</div>
+  <div class="key" id="g">g</div>
+  <div class="key" id="h">h</div>
+  <div class="key" id="j">j</div>
+  <div class="key" id="k">k</div>
+  <div class="key" id="l">l</div>
+  <div class="key" id="ae">ï¿½</div>
+  <div class="key" id="oe">ï¿½</div>
+  <div class="key" id="singleQuote">'</div>
+  <div class="key special" id="Enter2">Enter</div>
 </div>
 <div class="key-row">
-  <div class="key" id="shift1" onclick="shiftToggle()">shift</div>
-  <div class="key" id="lessThan" onclick="keyClick(this.innerHTML)">&lt;</div>
-  <div class="key" id="z" onclick="keyClick(this.innerHTML)">z</div>
-  <div class="key" id="x" onclick="keyClick(this.innerHTML)">x</div>
-  <div class="key" id="c" onclick="keyClick(this.innerHTML)">c</div>
-  <div class="key" id="v" onclick="keyClick(this.innerHTML)">v</div>
-  <div class="key" id="b" onclick="keyClick(this.innerHTML)">b</div>
-  <div class="key" id="n" onclick="keyClick(this.innerHTML)">n</div>
-  <div class="key" id="m" onclick="keyClick(this.innerHTML)">m</div>
-  <div class="key" id="comma" onclick="keyClick(this.innerHTML)">,</div>
-  <div class="key" id="dot" onclick="keyClick(this.innerHTML)">.</div>
-  <div class="key" id="dash" onclick="keyClick(this.innerHTML)">-</div>
-  <div class="key" id="shift2" onclick="shiftToggle()">shift</div>
+  <div class="key special" id="shift1">shift</div>
+  <div class="key" id="lessThan">&lt;</div>
+  <div class="key" id="z">z</div>
+  <div class="key" id="x">x</div>
+  <div class="key" id="c">c</div>
+  <div class="key" id="v">v</div>
+  <div class="key" id="b">b</div>
+  <div class="key" id="n">n</div>
+  <div class="key" id="m">m</div>
+  <div class="key" id="comma">,</div>
+  <div class="key" id="dot">.</div>
+  <div class="key" id="dash">-</div>
+  <div class="key special" id="shift2">shift</div>
 </div>
 <div class="key-row">
-  <div class="key" id="Ctrl1" onclick="keyClick('')">Ctrl</div>
-  <div class="key" id="Alt" onclick="keyClick('')">Alt</div>
-  <div class="key" id="Space" onclick="keyClick(' ')">Space</div>
-  <div class="key" id="AltGr" onclick="altGrToggle()">Alt Gr</div>
-  <div class="key" id="Ctrl2" onclick="keyClick('')">Ctrl</div>
+  <div class="key special" id="Ctrl1" >Ctrl</div>
+  <div class="key special" id="Alt">Alt</div>
+  <div class="key special" id="Space">Space</div>
+  <div class="key special" id="AltGr">Alt Gr</div>
+  <div class="key special" id="Ctrl2">Ctrl</div>
 </div>
