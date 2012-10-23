@@ -1,9 +1,10 @@
 <body class="modern-ui">
 <div class="page secondary">
   <?php include("header.php")?>
+
   <div class="page-header"> 
-  
-    <div class="page-header-content"> <a href="index.php" class="back-button big page-back"></a>
+  <div class="page-header-content bg">
+     <a href="index.php" class="back-button big page-back"></a>
       <h1> Producten <small>streeplijst</small> </h1>
     </div>
   </div>

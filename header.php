@@ -3,12 +3,22 @@
         $("#sizeX").html('W: '+$(window).width());
         $("#sizeY").html('H: '+$(window).height());
     }
+    
     $(function(){
         getWindowsSize();
         $(window).resize(function(){
             getWindowsSize()
         });
-    })
+    });
+    
+    $(document).ready(function(){
+    	$('#settings').hide();
+    	    $('#cogweel').click(function(){
+  				$('#settings').slideToggle('slow', function() {
+  			});
+  		});
+	});
+
 </script>
 
 <div style="display: none; position: fixed; height: 100px; width: 100px; padding: 10px; z-index: 10000;" class="bottom-right bg-color-darken fg-color-white">
@@ -25,7 +35,7 @@
                 <sup class="fg-color-yellow tertiary-info-secondary-text"> v 0.1.0</sup>
                 </span>
             </div>
- 			<a><img src="media/images/default/cogwheel.png" style="float:right; width:20px; padding-top:15px; margin-left:10px;" /></a>
+ 			<a><img id="cogweel" src="media/images/default/cogwheel.png" style="float:right; width:20px; padding-top:15px; margin-left:10px;" /></a>
             <ul class="place-right">
             	
                 <li data-role="dropdown" class="sub-menu">
@@ -61,6 +71,11 @@
             
         </div>
     </div>
+        <div class="page-header" id="settings"> 
+    	<div class="page-header-content bg-color-red">
+      		Hallo 
+    	</div>
+  </div>
 <?PHP
 echo '<script src="'. JAVASCRIPT_DIR.'dropdown.js"></script>';
 ?>
