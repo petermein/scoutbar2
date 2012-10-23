@@ -6,6 +6,7 @@ class Category implements Comparable {
 	var $Name;
 	var $Weight;
 	var $Hidden;
+	var $Color;
 	
 	static $Categorys = array();
 
@@ -84,6 +85,7 @@ class Category implements Comparable {
 		$this -> name = $Category['naam'];
 		$this -> weight = $Category['weight'];
 			$this -> hidden = $Category['hidden'];
+						$this -> color = $Category['color'];
 	}
 
 	function toString() {

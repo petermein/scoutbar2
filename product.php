@@ -30,15 +30,16 @@
 					foreach($products as $product){
 						echo $product->photo(true);
 						$i++;
+						$color = CATEGORY::byId($product->categorie) -> color;
 					}
 					for($j = ($i%4 == 0 ? 0 : 4 - $i%4); $j==0, $j--;){
-								echo "<div class=\"tile bg-color-yellow\">
+								echo "<div class=\"tile bg-color-". $color ."\">
            								
 									</div>";
 					}
 					echo '</div>';
 					if($first){
-						echo '<div class="span2" style="position:relative float:right">';
+						echo '<div class="span2">';
 						echo '<div class="tile double-vertical bg-color-green"> </div>';
 						echo '</div>';
 					$first = false;

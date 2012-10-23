@@ -94,7 +94,7 @@ class Product {
 		$this -> price = $Product['prijs'];
 		$this -> min_age = $Product['min_leeftijd'];
 
-		$this -> categorie = $Product['categorie'];
+		$this -> categorie =$Product['categorie'];
 		$this -> weight = $Product['weight'];
 	}
 
@@ -125,9 +125,9 @@ class Product {
 
 		//TODO: Add style to image
 		$string = "<div class=\"tile\">
-           <div class=\"tile-content image bg-color-yellow\"> <img src='" . $image . "' /> </div>";
+           <div class=\"tile-content image bg-color-". CATEGORY::byId($Product -> categorie)->color ."\"> <img src='" . $image . "' /> </div>";
 		if ($name) {
-			$string .= "<div class=\"brand bg-color-yellow\">";
+			$string .= "<div class=\"brand bg-color-". CATEGORY::byId($Product -> categorie)->color ."\">";
 			$string .= "<p class=\"badge\">" . number_format($Product -> price,2) . "</p>";
 			$string .= "<p class=\"name\">" . $Product -> name . "</p>";
 		
