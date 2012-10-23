@@ -3327,6 +3327,18 @@ table.bordered tbody tr:last-child td {
   float: left;
   border: 1px #1e1e1e solid;
 }
+.tile .icon-set {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  max-height: 150px;
+}
+.tile-block{
+  float:left;
+  height: 75px;
+  width: 75px;
+}
+
 .tile .tile-content.images-set img:first-child {
   float: left;
   width: 50%;
