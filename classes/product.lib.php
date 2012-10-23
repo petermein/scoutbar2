@@ -131,8 +131,9 @@ class Product {
 			if ($Product -> min_age == 16) {
 				$string .= "<div class=\"badge bg-color-red\">16</div>";
 			}
+			$string .= "<p class=\"badge\">" . number_format($Product -> price,2) . "</p>";
 			$string .= "<p class=\"name\">" . $Product -> name . "</p>";
-
+		
 			$string .= "</div>";
 		}
 		$string .= "</div>";
