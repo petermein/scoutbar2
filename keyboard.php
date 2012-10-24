@@ -5,12 +5,11 @@
 
 	$(document).ready(function(){
 
-  $('.key').click(function(){
-  	$('#search').keyup();
-  });
+  
   $('.key:not(.special)').click(function(){
   	key = $(this).html();
   	keyClick(key);
+  	$('#search').keyup();
   });
   
   $('.special#tab').click(function(){ keyClick('\t'); });
@@ -213,78 +212,9 @@
   }
   -->
 </script>
-<style type="text/css">
-.key {
-	font-family: sans-serif;
-	font-size: 14px;
-	cursor: pointer;
-	border: 1px solid #000000;
-	background-color: #313038;
-	margin:5px 5px 5px 5px;
-	padding-top:10px;
-	width:50px;
-	height:40px;
-	float:left;
-	color:#fff;
-	text-align:center;
-}
-.key-row {
-	position:relative;
-	width:940px;
-	float:inherit;
-}
-#keyboard {
-	font-family: sans-serif;
-	padding: 2px;
-	height: 260px;
-	width: 920px;
-	background-color: #525252 !important;
-}
-
-#tab {
-	width:80px;
-}
-#backsp {
-	width:120px;
-}
-#capsLock {
-	width:100px;
-}
-#shift1 {
-	width:120px;
-	background-color: #1d1c24;
-}
-#shift2 {
-	width:110px;
-	background-color: #1d1c24;
-}
-#Enter1 {
-	width:90px;
-}
-#Enter2 {
-	width:70px;
-}
-#Ctrl1 {
-	width:70px;
-	background-color: #1d1c24;
-}
-#Alt {
-	width:70px;
-	background-color: #1d1c24;
-}
-#Space {
-	width:580px;
-}
-#AltGr {
-	width:70px;
-	background-color: #1d1c24;
-}
-#Ctrl2 {
-	width:70px;
-	background-color: #1d1c24;
-}
-
-</style>
+<?php
+echo '<link href="'. STYLE_DIR.'keyboard.css" rel="stylesheet" type="text/css">';
+?>
 <div id="keyboard">
 <div class="key-row">
   <div class="key" id="oneHalf">�</div>

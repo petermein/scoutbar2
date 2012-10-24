@@ -134,7 +134,7 @@ class User {
 
 		//TODO: Add style to image
 		$string = "<div class=\"tile user\" id='". $user -> persoon_id ."'>
-           <div class=\"tile-content image ". $align ."\"> <img src='" . $image . "' /> </div>";
+           <div class=\"tile-content image ". $align ."\"> <img src='" . $image . "' alt='" . $user -> firstname . " " . $user -> lastname . "' /> </div>";
 		if ($name) {
 			$string .= "<div class=\"brand bg-color-orange\">";
 		}

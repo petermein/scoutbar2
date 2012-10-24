@@ -10,7 +10,7 @@
         </div>
     </div>
 </div> 
-<script language="javascript">
+<script>
 	$('#search').focus(function(){
 		$('#footer').animate({
 		bottom:0

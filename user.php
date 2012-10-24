@@ -22,8 +22,8 @@
   </div>
   <?php include("footer.php")?>
 </div>
-</body>
-<script language="JavaScript">
+</div>
+<script>
 //--user click handler--\\
 	$(document).ready(function() {
 		$('.tile.user').click(function() {
@@ -63,3 +63,4 @@
 	}
 	
 </script>
+</body>

@@ -19,7 +19,7 @@ echo '<meta http-equiv="Content-Type" content="text/html; '. ENCODING .'="'. CHA
 <script src="'. JAVASCRIPT_DIR.'github.info.js"></script>
 <script src="'. JAVASCRIPT_DIR.'error.js"></script>';
 ?>
-<script language="JavaScript">
+<script>
 	$(document).ready(function() {
 		$('.tile.user').click(function() {
 			console.log($(this).attr('id'));

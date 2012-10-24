@@ -35,7 +35,7 @@
                 <sup class="fg-color-yellow tertiary-info-secondary-text"> v 0.1.0</sup>
                 </span>
             </div>
- 			<a><img id="cogweel" src="media/images/default/cogwheel.png" style="float:right; width:20px; padding-top:15px; margin-left:10px;" /></a>
+ 			<a><img id="cogweel" alt="Instellingen" src="media/images/default/cogwheel.png" style="float:right; width:20px; padding-top:15px; margin-left:10px;" /></a>
             <ul class="place-right">
             	
                 <li data-role="dropdown" class="sub-menu">
@@ -55,7 +55,7 @@
                 <li data-role="dropdown" class="sub-menu">
                     <a href="#">Options</a>
                     <ul class="dropdown-menu">
-                        <li><a href="index.php?page=poduct&user_id=16">User</a></li>
+                        <li><a href="index.php?page=poduct&amp;user_id=16">User</a></li>
                         <li><a href="#" onclick="MassaStreep()">ProductList</a></li>
                     </ul>
                 </li>

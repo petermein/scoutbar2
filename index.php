@@ -10,7 +10,7 @@ require_once DOC_ROOT.CLASS_DIR.'product.lib.php';
 <html>
 <head>
 	<?PHP
-echo '<meta http-equiv="Content-Type" content="text/html; '. ENCODING .'="'. CHARSET .'" />
+echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>Scoutbar2.0</title>
 <link href="'. STYLE_DIR.'modern.css" rel="stylesheet">
 <link href="'. STYLE_DIR.'modern-responsive.css" rel="stylesheet">
