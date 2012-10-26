@@ -83,6 +83,7 @@ textarea {
  */
 body {
   margin: 0;
+
 }
 /* =============================================================================
    Links
@@ -1359,6 +1360,9 @@ ol.unstyled,
   position: relative;
   display: block;
 }
+
+
+
 .page .page-header .page-header-content h1,
 .page .page-header .page-header-content h2,
 .page .page-header .page-header-content h3,
@@ -2565,6 +2569,28 @@ table.bordered tbody tr:last-child td {
   right: 0;
   bottom: 0;
 }
+
+.navigation-bar .page-header-notification {
+  width: 100%;
+  position: relative;
+  z-index: 1001;
+  float: left;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+.navigation-bar .page-header-notification > * {
+	display: none;
+}
+
+.navigation-bar .page-header-notification .page-header-notification-content {
+  max-height: 100px;
+  width: 100%;
+  margin-left: 10px;
+  margin-top: 10px;
+  position: relative;
+  display: block;
+}
 .menu-pull {
   position: absolute;
   right: 10px;
@@ -3401,6 +3427,80 @@ table.bordered tbody tr:last-child td {
 .tile .tile-status:after {
   clear: both;
 }
+
+.tile .count {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-bottom: 0; 
+  margin-left: 10pt;
+  margin-top: 5pt;
+  color: #2d89ef;
+  text-align: center;
+  font-family: 'Segoe UI Semibold', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 12pt;
+  letter-spacing: 0.01em;
+  line-height: 14pt;
+  font-size: 20pt;
+  display: none;
+}
+
+
+.tile .brand  > .badge,
+.tile .tile-status  > .badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  right: 5px;
+  margin-bottom: 0;
+  color: #ffffff;
+  width: 34px;
+  height: 28px;
+  text-align: center;
+  font-family: 'Segoe UI Semibold', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 11pt;
+  letter-spacing: 0.01em;
+  line-height: 14pt;
+  padding-top: 3px;
+}.tile .brand-row {
+	position:relative;
+	width: 100%;
+	min-height: 20px;
+	background-color: transparent;
+	*zoom: 1;
+}
+.tile .brand:before,
+.tile .tile-status:before,
+.tile .brand:after,
+.tile .tile-status:after {
+  display: table;
+  content: "";
+}
+.tile .brand:after,
+.tile .tile-status:after {
+  clear: both;
+}
+
+.tile .count {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-bottom: 0; 
+  margin-left: 10pt;
+  margin-top: 5pt;
+  color: #2d89ef;
+  text-align: center;
+  font-family: 'Segoe UI Semibold', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 12pt;
+  letter-spacing: 0.01em;
+  line-height: 14pt;
+  font-size: 20pt;
+  display: none;
+}
+
 .tile .brand  > .badge,
 .tile .tile-status  > .badge {
   position: absolute;
@@ -3419,6 +3519,27 @@ table.bordered tbody tr:last-child td {
   line-height: 14pt;
   padding-top: 3px;
 }
+.tile .brand-row  > .badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  right: 5px;
+  margin-bottom: 0;
+  color: #ffffff;
+  width: 34px;
+  height: 20px;
+  text-align: center;
+  font-family: 'Segoe UI Semibold', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 11pt;
+  letter-spacing: 0.005em;
+  line-height: 14pt;
+  padding-top: 3px;
+}
+.tile .brand-row  > .icon-holder {
+  margin: 10px;
+}
+
 .tile .brand  > .badge.activity,
 .tile .tile-status  > .badge.activity {
   background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGMSURBVDhPvZMtTwNBEIbv2mtScaICcQJRgSgJCQIEhqSiAlEHAlFRwU/ov0AgUEgUsrIkiJIgMOAQJFSQQAIJJBWIu95Hj2eGvXIpB3W8yWTn452Z3dld25pDmqZuFEWdcrm8jr6JK7Bt+wb9Ft85+vsXswBxHHdIfmFNi4TYG7InXAp6ss52kCTJIc6e6KzSVbrdYzrYDaSFXZU4uEQ8x3FW1ZpMJge5Tn3IdQ3kID5iw4zHTqIsUEP3TWCA7WhgDjRZg/eUFRCR3Fl3KYJjyfALIUU46jHcsSlQl8FdmQJnhrcQJFbJ6QZB0LDDMNyS4XBFo1Kp9Gw4/wi247GLHmvNuBaC47Y5gtzIQB1mBmMGdDSdTpfV+QdM8vfcsqkap6ClgQIQa+a4bXViPGRO5ILjuBqYAwk7yIfhXcNz9CljDFkkST6P4JGjnHA7d+gBxAY3tIve1Khljbi1beKvakHQp0uhfTrMjvOL9H3fX9FE8OM7yxAhdem4QWHZkSufSoTYaaVSkY9kYFmfXgyTciI3uacAAAAASUVORK5CYII%3D) 50% no-repeat;
@@ -3475,6 +3596,27 @@ table.bordered tbody tr:last-child td {
   font-size: 9pt;
   color: #ffffff;
 }
+.tile .brand-row  > .name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: 80px;
+  line-height: 10px;
+  margin-bottom: 3px;
+  margin-left: 15px;
+  font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 9pt;
+  color: #ffffff;
+}
+.tile .brand-row  > .box {
+	position: absolute;
+	background-color: #B91D47;
+	width: 15px;
+	height: 15px;
+	bottom: -3px;
+	left: 7px;
+}
 .tile .brand  > .name:hover,
 .tile .tile-status  > .name:hover {
   color: #ffffff;
@@ -3515,9 +3657,7 @@ table.bordered tbody tr:last-child td {
 .tile .tile-status  > .text:hover {
   color: #ffffff;
 }
-.tile:hover {
-  outline: 3px #3a3a3a solid;
-}
+
 /*
  * Metro UI CSS v 0.1.1
  * Copyright 2012 Sergey Pimenov
@@ -4462,7 +4602,7 @@ pre code {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHpSURBVEhLtZavT8JRFMXBGQgEg5FAYNNgIBAMBhpsEowEIpFgYLMYMBsMFht/gRNHgRn8EzDoCBY2CAQ3g4GAAz/ncUW+ym++nu3swnn3nfu47/se32BgDobDYRie8DEFozAiHXRhB9aDwWAFvjl1CqYWkDGhSDwjykgmL8QW1LgK7cEMPIA3jF/MKzTGYDBIwLYxbfJMkHMIm/B9YT4JWdiDZVa5Y/JCkBtizqXNPTXZCwa0ciXkTFoZFEoyvw/Vuh8wEEZUS8omrQ28Svh8wO8HYiy2iUu3ZRbw2MarMV6srV6tWbihywLPOH5qVUy9z8FXG/MNeD7A8y0+6xBVnOov7mFKBaJ2iHwFns+EqApot90JnQR9XAk2bRItikRUYBt+OukfoAIdFqCLzAOqrwSbNokIvl1XAOri8hWY7xM6KlCH3qPtD45hTZV2eV51KBIjfXOo5fj1iHEn8OUaNhFCTtgQeD3Cqn11FfUrdJ9fmrQ28CjAPp7agx8gpqF+VtKklSFTPHST5k3ygoEiVPUS1PlYGszTymV+ZdJ0kJCxxAZFRps0B+RoQ9VzPSjTV/4bJEZgGeoa161YwCgpM+MRWh7eWU4Vzdtzw9zXFibGCFnoXls4sO5fCrPv15Ya2i18kv4XgcAXTr+7IYi7bgIAAAAASUVORK5CYII%3D);
 }
 [class*=icon-] {
-  background-image: url("../images/icons.png");
+  background-image: url("../media/images/sprites/icons-48.png");
   background-repeat: no-repeat;
   display: inline-block;
   float: left;
@@ -4476,12 +4616,12 @@ pre code {
   margin-right: 0;
 }
 [class*=icon-].white {
-  background-image: url("../images/icons-white.png") !important;
+  background-image: url("../media/images/sprites/icons-white-48.png") !important;
 }
 button:active [class*=icon-],
 .button:active [class*=icon-],
 .tool-button:active [class*=icon-] {
-  background-image: url("../images/icons-white.png");
+  background-image: url("../media/images/sprites/icons-white-48.png");
 }
 .icon-about {
   background-position: 0 0;

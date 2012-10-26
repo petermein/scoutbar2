@@ -12,16 +12,18 @@
     });
     
     $(document).ready(function(){
-    	$('#settings').hide();
-    	    $('#cogweel').click(function(){
-  				$('#settings').slideToggle('slow', function() {
-  			});
+    	    $('.navigation-icons-cogweel').click(function(){
+    	    	if($(this).hasClass("bg-color-red")){ $(this).removeClass("bg-color-red") }
+    	    	else { $(this).addClass("bg-color-red") }
+  				$('#settings').slideToggle('slow', function() {});
+  		
+  					
+  				
   		});
 	});
-
 </script>
 
-<div style="display: none; position: fixed; height: 100px; width: 100px; padding: 10px; z-index: 10000;" class="bottom-right bg-color-darken fg-color-white">
+<div style="position: fixed; height: 100px; width: 100px; padding: 10px; z-index: 10000;" class="bottom-right bg-color-darken fg-color-white">
     Screen size:
     <div id="sizeX">0</div>
     <div id="sizeY">0</div>
@@ -35,7 +37,9 @@
                 <sup class="fg-color-yellow tertiary-info-secondary-text"> v 0.1.0</sup>
                 </span>
             </div>
- 			<a><img id="cogweel" alt="Instellingen" src="media/images/default/cogwheel.png" style="float:right; width:20px; padding-top:15px; margin-left:10px;" /></a>
+ 			<div class="navigation-icons-cogweel">
+ 				<img id="cogweel" alt="Instellingen" src="./media/images/default/cogwheel.png" /></a>
+           </div>
             <ul class="place-right">
             	
                 <li data-role="dropdown" class="sub-menu">
@@ -70,11 +74,11 @@
             </ul>
             
         </div>
-    </div>
-        <div class="page-header" id="settings"> 
-    	<div class="page-header-content bg-color-red">
-      		Hallo 
+        
+     <div class="page-header-notification bg-color-red" id="settings"> 
+    	<div class="page-header-notification-content ">
     	</div>
+    </div>  
   </div>
 <?PHP
 echo '<script src="'. JAVASCRIPT_DIR.'dropdown.js"></script>';

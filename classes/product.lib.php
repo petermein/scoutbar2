@@ -105,7 +105,7 @@ class Product {
 
 	static function photoExists($Product_id) {
 
-		return file_exists(DOC_ROOT . IMAGE_DIR . 'Products/' . $Product_id . '.png');
+		return file_exists(DOC_ROOT . IMAGE_DIR . 'products/' . $Product_id . '.png');
 	}
 
 	function photo($name = false, $ghosted = false, $centered = false) {
@@ -116,20 +116,24 @@ class Product {
 	}
 
 	static function ProductPhoto($Product = null, $name = false, $ghosted = false, $centered = false) {
-		$string = "<div class=\"tile bg-color-". CATEGORY::byId($Product -> categorie)->color ."\">";
+		$string = "<div class=\"tile product bg-color-". CATEGORY::byId($Product -> categorie)->color ."\">";
 		if ($Product !== null and self::photoExists($Product -> product_id)) {
-			$image = WEB_ROOT . IMAGE_DIR . 'Products/' . $Product -> product_id . ".png";
+			$image = WEB_ROOT . IMAGE_DIR . 'products/' . $Product -> product_id . ".png";
 			$string .= "<div class=\"tile-content image bg-color-". CATEGORY::byId($Product -> categorie)->color ."\"> <img src='" . $image . "' /> </div>";
 			
 		}if ($name) {
 				$string .= "<div class=\"brand bg-color-". CATEGORY::byId($Product -> categorie)->color ."\">";
 				$string .= "<p class=\"badge\">" . number_format($Product -> price,2) . "</p>";
 				$string .= "<p class=\"name\">" . $Product -> name . "</p>";
-			
 				$string .= "</div>";
-			}
-		$string .= "</div>";
+			}	
 
+		$string .= "<var class='count'>0</var>";
+		
+		$string .= "<input type=\"hidden\" name=\"id\" value=". $Product->product_id .">";
+		$string .= "</div>";
+		
+	
 		return $string;
 	}
 
